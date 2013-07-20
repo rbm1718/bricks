@@ -23,6 +23,7 @@
   -->  
   <!-- Included CSS Files (Compressed) -->
   <link rel="stylesheet" href="../stylesheets/foundation.min.css">
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../stylesheets/app.css">
   <script src="../javascripts/modernizr.foundation.js"></script>
   <!-- IE Fix for HTML5 Tags -->
