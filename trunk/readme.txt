@@ -1,6 +1,5 @@
 ==About==
-OWASP Bricks - 1.4 Punpun
-
+OWASP Bricks - 1.5 Lachen
 ==Installation==
 
 Copy this folder into the www directory.
