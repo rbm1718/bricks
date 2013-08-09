@@ -1,5 +1,5 @@
 ==About==
-OWASP Bricks - 1.5 Lachen
+OWASP Bricks - 1.6 Raidak
 ==Installation==
 
 Copy this folder into the www directory.
