@@ -14,8 +14,8 @@
   <!-- Included CSS Files (Compressed) -->
   <link rel="stylesheet" href="../stylesheets/foundation.min.css">
   <link rel="stylesheet" href="../stylesheets/app.css">
-  <link rel="icon" href="../favicon.ico" type="image/x-icon">
   <script src="../javascripts/modernizr.foundation.js"></script>
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

@@ -1,5 +1,5 @@
 <?php
-	require_once(dirname(dirname(__FILE__)) . '\includes\MySQLHandler.php');
+	require_once(dirname(dirname(__FILE__)) . '/includes/MySQLHandler.php');
 	$id=$_GET['id'];
 	if(isset($_GET['id'])) {
 		$sql = "SELECT * FROM users WHERE idusers=$id LIMIT 1";

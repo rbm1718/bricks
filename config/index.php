@@ -28,7 +28,7 @@
 		<br/><br/><a href="../index.php"><img src="../images/bricks.jpg" /></a><br/><br/>
 		<?php
 			$dir = dirname( dirname(__FILE__) );
-			if(@include_once($dir . '\LocalSettings.php')) 
+			if(@include_once($dir . '/LocalSettings.php')) 
 			{
 			echo '<fieldset>
 				<legend>Configuration</legend>
