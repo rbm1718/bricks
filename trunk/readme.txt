@@ -1,5 +1,5 @@
 ==About==
-OWASP Bricks - 1.6 Raidak
+OWASP Bricks - 1.7 Phalgu
 ==Installation==
 
 Copy this folder into the www directory.

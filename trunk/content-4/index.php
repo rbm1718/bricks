@@ -1,13 +1,9 @@
 <?php
 	require_once(dirname(dirname(__FILE__)) . '/includes/MySQLHandler.php');
-	$user=$_GET['user'];
-	if(isset($_GET['user'])) {
-		$sql = "SELECT * FROM users WHERE name='$user'";
-		$result=mysql_query($sql);
-	} else {
-		header("Location: index.php?user=harry");
-		exit;
-	 }
+	$uagent = $_SERVER['HTTP_USER_AGENT'];
+	$sql= "SELECT * FROM users WHERE ua='$uagent' ";
+	$result=mysql_query($sql);
+	$count=mysql_num_rows($result);
 ?><!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -15,8 +11,9 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8" />
+  <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
-  <title>Bricks Content Page #2</title>  
+  <title>Bricks Content Page #4</title>  
   <!-- Included CSS Files (Uncompressed) -->
   <!--
   <link rel="stylesheet" href="../stylesheets/foundation.css">
@@ -30,26 +27,23 @@
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-</head>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'></head>
 <body>
 <div class="row">
 	<div class="four columns centered">
-		<br/><br/><a href="../index.php"><img src="../images/bricks.jpg" /></a>
+		<br/><br/><a href="../index.php"><img src="../images/bricks.jpg" /></a><br/><br/>
 		<p>
 			<fieldset>
 				<legend>Details</legend>
-					<?php 
-							if ($content = mysql_fetch_array($result)) {
-								echo '<br/>User ID: <b>'. $content['idusers'].'</b><br/><br/>';
-								echo 'User name: <b>'. $content['name'].'</b><br/><br/>';
-								echo 'E-mail: <b>'. $content['email'].'</b><br/><br/>';
-							} else if (!$result) {
-								echo("Database query failed: " . mysql_error());
-								} else {		
-									echo 'Error! User does not exists';
-							}
-						?><br/>
+				<?php 
+					if ($content = mysql_fetch_array($result)) {
+						echo 'This browser is normally used by<br/><br/>User ID: '. $content['idusers'] . '<br/><br/>User name: '. $content['name'] . '<br/><br/>';
+					} else if (!$result) {
+						echo("Database query failed: " . mysql_error());
+					} else {		
+						echo 'Error! User does not exists<br/><br/>';
+					}
+				?>
 			</fieldset>
 		</p><br/>
 	</div><br/><br/><br/>
@@ -61,8 +55,7 @@
 				echo '<a href="" class="close">&times;</a></div></div>';			
 									} 
 		?>
-	</center>
-</div>  
+	</center></div>  
   <!-- Included JS Files (Uncompressed) -->
   <!--  
   <script src="../javascripts/jquery.js"></script>  

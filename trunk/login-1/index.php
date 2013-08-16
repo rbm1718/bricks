@@ -1,5 +1,5 @@
 <?php
-	require_once(dirname(dirname(__FILE__)) . '\includes\MySQLHandler.php');	
+	require_once(dirname(dirname(__FILE__)) . '/includes/MySQLHandler.php');	
 	$sSuccessMsg = "<div class=\"alert-box\">  You are not logged in.  <a href=\"\" class=\"close\">&times;</a></div>";
 	if(isset($_POST['submit'])) {
 	$username=$_POST['username'];
