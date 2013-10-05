@@ -58,7 +58,7 @@ header( 'Location: config/' ) ;
 
   <div class="row">
     <div class="twelve columns">
-      <a href="http://www.flickr.com/photos/blmiers2/5777659359/" target="_blank"><img src="images/123.png" /></a>
+      <a href="http://www.flickr.com/photos/photophilde/2941549171/" target="_blank"><img src="images/123.png" /></a>
     </div>
   </div>
   

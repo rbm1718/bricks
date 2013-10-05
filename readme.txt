@@ -1,5 +1,5 @@
 ==About==
-OWASP Bricks - 1.8 Atrai
+OWASP Bricks - 1.9 Barak
 ==Installation==
 
 Copy this folder into the www directory.
