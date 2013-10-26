@@ -1,5 +1,5 @@
 ==About==
-OWASP Bricks - 1.9 Barak
+OWASP Bricks - 2.0 Dakatua
 ==Installation==
 
 Copy this folder into the www directory.
