@@ -1,5 +1,5 @@
 ==About==
-OWASP Bricks - 2.0 Dakatua
+OWASP Bricks - 2.1 Mora
 ==Installation==
 
 Copy this folder into the www directory.
