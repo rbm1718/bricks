@@ -1,5 +1,5 @@
 ==About==
-OWASP Bricks - 2.1 Mora
+OWASP Bricks - 2.2 Tuivai
 ==Installation==
 
 Copy this folder into the www directory.
