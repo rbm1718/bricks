@@ -1,0 +1,3 @@
+![http://2.bp.blogspot.com/-D9F0fwmgwY0/URI5QiOfOSI/AAAAAAAAFtg/YUK4nq12peA/s290/1234.jpg](http://2.bp.blogspot.com/-D9F0fwmgwY0/URI5QiOfOSI/AAAAAAAAFtg/YUK4nq12peA/s290/1234.jpg)
+
+Bricks is a deliberately vulnerable web application built on PHP and MySQL. The project focuses on variations of commonly seen application security vulnerabilities and exploits. Each 'brick' has some sort of vulnerability which can be exploited using tools (Mantra and ZAP). The mission is to 'break the bricks' and thus learn the various aspects of web application security.
