@@ -37,6 +37,32 @@
 				<legend>Details</legend>
 				<?php 
 					if ($content = mysql_fetch_array($result)) {
+						// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+						//
+						// GET /content-4/index.php HTTP/1.1
+						// Host: localhost
+						// Accept-Encoding: identity
+						// Connection: close
+						//
+						//
+						//
+						// (mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE ua=\'' . $_SERVER['HTTP_USER_AGENT']) . '\' ')))['idusers'] == '</fieldset></div></div><script>alert(1)</script>')
+						//
+						// mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE ua=\'' . $_SERVER['HTTP_USER_AGENT']) . '\' ')))
+						// mysql_select_db(NULL, True)
+						// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+						//
+						// GET /content-4/index.php HTTP/1.1
+						// Host: localhost
+						// Accept-Encoding: identity
+						// Connection: close
+						//
+						//
+						//
+						// (mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE ua=\'' . $_SERVER['HTTP_USER_AGENT']) . '\' ')))['name'] == '</fieldset></div></div><script>alert(1)</script>')
+						//
+						// mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE ua=\'' . $_SERVER['HTTP_USER_AGENT']) . '\' ')))
+						// mysql_select_db(NULL, True)
 						echo 'This browser is normally used by<br/><br/>User ID: '. $content['idusers'] . '<br/><br/>User name: '. $content['name'] . '<br/><br/>';
 					} else if (!$result) {
 						echo("Database query failed: " . mysql_error());
