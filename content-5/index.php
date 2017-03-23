@@ -9,6 +9,7 @@
 		session_start();
 		if($count1>0)
 		{
+			// TODO: AI issue #5, High, Sensitive Cookie in HTTPS Session Without ‘Secure’ Attribute, https://github.com/rbm1718/bricks/issues/5
 			setcookie(User, $username);
 			header("location: index.php");
 		}
