@@ -11,6 +11,7 @@ $con = mysql_connect($host,$dbuser,$dbpass);
 
 if (!$con)
  {
+ // TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
  die('Could not connect: ' . mysql_error());
  }
 
