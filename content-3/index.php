@@ -39,8 +39,53 @@
 	$result=mysql_query($sql);
 	$count=mysql_num_rows($result);
   if ($content = mysql_fetch_array($result)) {
+			// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+			//
+			// POST /content-3/index.php HTTP/1.1
+			// Host: localhost
+			// Accept-Encoding: identity
+			// Connection: close
+			// Content-Length: 19
+			// Content-Type: application/x-www-form-urlencoded
+			//
+			// submit=935137890000
+			//
+			// (mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE name=\'' . $_POST['username']) . '\'')))['idusers'] == '</b></fieldset></div></div><script>alert(1)</script>')
+			//
+			// mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE name=\'' . $_POST['username']) . '\'')))
+			// mysql_select_db(NULL, True)
 			echo '<br/>User ID: <b>'. $content['idusers'].'</b><br/><br/>';
+			// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+			//
+			// POST /content-3/index.php HTTP/1.1
+			// Host: localhost
+			// Accept-Encoding: identity
+			// Connection: close
+			// Content-Length: 19
+			// Content-Type: application/x-www-form-urlencoded
+			//
+			// submit=935137890000
+			//
+			// (mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE name=\'' . $_POST['username']) . '\'')))['name'] == '</b></fieldset></div></div><script>alert(1)</script>')
+			//
+			// mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE name=\'' . $_POST['username']) . '\'')))
+			// mysql_select_db(NULL, True)
 			echo 'User name: <b>'. $content['name'].'</b><br/><br/>';
+			// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+			//
+			// POST /content-3/index.php HTTP/1.1
+			// Host: localhost
+			// Accept-Encoding: identity
+			// Connection: close
+			// Content-Length: 19
+			// Content-Type: application/x-www-form-urlencoded
+			//
+			// submit=935137890000
+			//
+			// (mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE name=\'' . $_POST['username']) . '\'')))['email'] == '</b></fieldset></div></div><script>alert(1)</script>')
+			//
+			// mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE name=\'' . $_POST['username']) . '\'')))
+			// mysql_select_db(NULL, True)
 			echo 'E-mail: <b>'. $content['email'].'</b><br/><br/>';
 		} else if (!$result) {
 			echo("Database query failed: " . mysql_error());
