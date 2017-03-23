@@ -11,6 +11,7 @@
 ?><!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+// TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
@@ -44,6 +45,7 @@
 						echo 'User name: <b>'. $content['name'].'</b><br/><br/>';
 						echo 'E-mail: <b>'. $content['email'].'</b><br/><br/>';
 					} else if (!$result) {
+						// TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
 						echo("Database query failed: " . mysql_error());
 						} else {		
 							echo 'Error! User does not exists';
