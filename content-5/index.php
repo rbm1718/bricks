@@ -46,6 +46,17 @@
 					{ 
 						$cookie=$_COOKIE['User'];
 						$sql="SELECT * FROM users WHERE name='$cookie' ";
+						// TODO: AI issue #4, High, SQL Injection, https://github.com/rbm1718/bricks/issues/4
+						//
+						// GET /content-5/index.php HTTP/1.1
+						// Host: localhost
+						// Accept-Encoding: identity
+						// Connection: close
+						// Cookie: User=%27+or+sleep%285%29+%3D+%271
+						//
+						//
+						//
+						// mysql_select_db(NULL, True)
 						$result=mysql_query($sql);
 						$count=mysql_num_rows($result);
 						if ($content = mysql_fetch_array($result)) {
