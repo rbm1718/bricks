@@ -38,8 +38,47 @@
 			<legend>Details</legend>
 				<?php 
 					if ($content = mysql_fetch_array($result)) {
+						// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+						//
+						// GET /content-6/index.php?id=935137890000 HTTP/1.1
+						// Host: localhost
+						// Accept-Encoding: identity
+						// Connection: close
+						//
+						//
+						//
+						// (mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE idusers=' . base64_decode($_GET['id'], True)) . ' LIMIT 1')))['idusers'] == '</b></fieldset></div></div><script>alert(1)</script>')
+						//
+						// mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE idusers=' . base64_decode($_GET['id'], True)) . ' LIMIT 1')))
+						// mysql_select_db(NULL, True)
 						echo '<br/>User ID: <b>'. $content['idusers'].'</b><br/><br/>';
+						// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+						//
+						// GET /content-6/index.php?id=935137890000 HTTP/1.1
+						// Host: localhost
+						// Accept-Encoding: identity
+						// Connection: close
+						//
+						//
+						//
+						// (mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE idusers=' . base64_decode($_GET['id'], True)) . ' LIMIT 1')))['name'] == '</b></fieldset></div></div><script>alert(1)</script>')
+						//
+						// mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE idusers=' . base64_decode($_GET['id'], True)) . ' LIMIT 1')))
+						// mysql_select_db(NULL, True)
 						echo 'User name: <b>'. $content['name'].'</b><br/><br/>';
+						// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+						//
+						// GET /content-6/index.php?id=935137890000 HTTP/1.1
+						// Host: localhost
+						// Accept-Encoding: identity
+						// Connection: close
+						//
+						//
+						//
+						// (mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE idusers=' . base64_decode($_GET['id'], True)) . ' LIMIT 1')))['email'] == '</b></fieldset></div></div><script>alert(1)</script>')
+						//
+						// mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE idusers=' . base64_decode($_GET['id'], True)) . ' LIMIT 1')))
+						// mysql_select_db(NULL, True)
 						echo 'E-mail: <b>'. $content['email'].'</b><br/><br/>';
 					} else if (!$result) {
 						echo("Database query failed: " . mysql_error());
