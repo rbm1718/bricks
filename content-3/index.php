@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width" />
   <title>Bricks Content Page #3</title>  
   <!-- Included CSS Files (Uncompressed) -->
+  // TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
   <!--
   <link rel="stylesheet" href="../stylesheets/foundation.css">
   -->  
@@ -43,6 +44,7 @@
 			echo 'User name: <b>'. $content['name'].'</b><br/><br/>';
 			echo 'E-mail: <b>'. $content['email'].'</b><br/><br/>';
 		} else if (!$result) {
+			// TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
 			echo("Database query failed: " . mysql_error());
 		} else {
 		
