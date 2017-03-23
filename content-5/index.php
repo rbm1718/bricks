@@ -11,6 +11,7 @@
 		{
 			setcookie(User, $username);
 			header("location: index.php");
+		// TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
 		}
 	 } 
 ?><!DOCTYPE html>
@@ -53,9 +54,11 @@
 								echo '<br/>User ID: <b>'. $content['idusers'].'</b><br/><br/>';
 								echo 'User name: <b>'. $content['name'].'</b><br/><br/>';
 								echo 'E-mail: <b>'. $content['email'].'</b><br/><br/></fieldset>';
+								// TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
 								echo (mysql_error());
 								echo '<a  class="small button" href="logout.php">Logout</a>';
 							} else if (!$result) {
+								// TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
 								echo("Database query failed: " . mysql_error());
 								} else {		
 									echo '<br/>User ID: <b></b><br/><br/>';
