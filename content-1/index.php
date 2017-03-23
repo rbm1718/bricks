@@ -3,6 +3,16 @@
 	$id=$_GET['id'];
 	if(isset($_GET['id'])) {
 		$sql = "SELECT * FROM users WHERE idusers=$id LIMIT 1";
+		// TODO: AI issue #4, High, SQL Injection, https://github.com/rbm1718/bricks/issues/4
+		//
+		// GET /content-1/index.php?id=sleep%285%29 HTTP/1.1
+		// Host: localhost
+		// Accept-Encoding: identity
+		// Connection: close
+		//
+		//
+		//
+		// mysql_select_db(NULL, True)
 		$result=mysql_query($sql);
 	} else {
 		header("Location: index.php?id=0");
