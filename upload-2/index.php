@@ -44,18 +44,18 @@
 						// Accept-Encoding: identity
 						// Connection: close
 						// Content-Length: 296
-						// Content-Type: multipart/form-data; boundary=1b6eb8119f654de0bca79fd349c2503e
+						// Content-Type: multipart/form-data; boundary=fbe32c1a600e4f138280701303867c50
 						//
-						// --1b6eb8119f654de0bca79fd349c2503e
+						// --fbe32c1a600e4f138280701303867c50
 						// Content-Disposition: form-data; name="upload"
 						//
 						// 935137890000
-						// --1b6eb8119f654de0bca79fd349c2503e
+						// --fbe32c1a600e4f138280701303867c50
 						// Content-Disposition: form-data; name="userfile"; filename="'onmouseover='alert(1)'"
 						// Content-Type: image/gif
 						//
 						// <?php phpinfo(); ?>
-						// --1b6eb8119f654de0bca79fd349c2503e--
+						// --fbe32c1a600e4f138280701303867c50--
 						//
 						echo "<div class=\"alert-box success\">Upload succesful: <a href='$destination'>here</a><a href=\"\" class=\"close\">&times;</a></div>";
 					}else {
