@@ -39,18 +39,18 @@
 						// Accept-Encoding: identity
 						// Connection: close
 						// Content-Length: 277
-						// Content-Type: multipart/form-data; boundary=2d11bd9c24c748fcb7de4b8de3e082c5
+						// Content-Type: multipart/form-data; boundary=d804d3c40dc940e0a15261965b147b5b
 						//
-						// --2d11bd9c24c748fcb7de4b8de3e082c5
+						// --d804d3c40dc940e0a15261965b147b5b
 						// Content-Disposition: form-data; name="upload"
 						//
 						// 935137890000
-						// --2d11bd9c24c748fcb7de4b8de3e082c5
+						// --d804d3c40dc940e0a15261965b147b5b
 						// Content-Disposition: form-data; name="userfile"; filename=".php"
 						// Content-Type: image/png
 						//
 						// <?php phpinfo(); ?>
-						// --2d11bd9c24c748fcb7de4b8de3e082c5--
+						// --d804d3c40dc940e0a15261965b147b5b--
 						//
 						// TODO: AI issue #8, High, Arbitrary File Creation, https://github.com/rbm1718/bricks/issues/8
 						//
@@ -59,18 +59,18 @@
 						// Accept-Encoding: identity
 						// Connection: close
 						// Content-Length: 278
-						// Content-Type: multipart/form-data; boundary=af4af215bd614896b2d4882b60d8b690
+						// Content-Type: multipart/form-data; boundary=00e13b4304a7467fa4bf2e9e8276eda8
 						//
-						// --af4af215bd614896b2d4882b60d8b690
+						// --00e13b4304a7467fa4bf2e9e8276eda8
 						// Content-Disposition: form-data; name="upload"
 						//
 						// 935137890000
-						// --af4af215bd614896b2d4882b60d8b690
+						// --00e13b4304a7467fa4bf2e9e8276eda8
 						// Content-Disposition: form-data; name="userfile"; filename=".php"
 						// Content-Type: image/jpeg
 						//
 						// <?php phpinfo(); ?>
-						// --af4af215bd614896b2d4882b60d8b690--
+						// --00e13b4304a7467fa4bf2e9e8276eda8--
 						//
 						if (move_uploaded_file($_FILES['userfile']['tmp_name'],$destination)) {
 							echo "<div class=\"alert-box success\">Upload succesful: <a href='$destination'>here</a><a href=\"\" class=\"close\">&times;</a></div>";
