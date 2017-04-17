@@ -40,18 +40,18 @@
 							// Accept-Encoding: identity
 							// Connection: close
 							// Content-Length: 296
-							// Content-Type: multipart/form-data; boundary=33247fbfa7464c83bf529216b7b9ce41
+							// Content-Type: multipart/form-data; boundary=6ec686a1e67042d38eacaaa1cda5de31
 							//
-							// --33247fbfa7464c83bf529216b7b9ce41
+							// --6ec686a1e67042d38eacaaa1cda5de31
 							// Content-Disposition: form-data; name="upload"
 							//
 							// 935137890000
-							// --33247fbfa7464c83bf529216b7b9ce41
+							// --6ec686a1e67042d38eacaaa1cda5de31
 							// Content-Disposition: form-data; name="userfile"; filename="'onmouseover='alert(1)'"
 							// Content-Type: image/png
 							//
 							// <?php phpinfo(); ?>
-							// --33247fbfa7464c83bf529216b7b9ce41--
+							// --6ec686a1e67042d38eacaaa1cda5de31--
 							//
 							//
 							// move_uploaded_file($_FILES['userfile']['tmp_name'], ('uploads/' . $_FILES['userfile']['name']))
@@ -62,18 +62,18 @@
 							// Accept-Encoding: identity
 							// Connection: close
 							// Content-Length: 297
-							// Content-Type: multipart/form-data; boundary=e7fa94ca703b4deca2d088b04354d64f
+							// Content-Type: multipart/form-data; boundary=13db3188cc5e4609b27b48576655a755
 							//
-							// --e7fa94ca703b4deca2d088b04354d64f
+							// --13db3188cc5e4609b27b48576655a755
 							// Content-Disposition: form-data; name="upload"
 							//
 							// 935137890000
-							// --e7fa94ca703b4deca2d088b04354d64f
+							// --13db3188cc5e4609b27b48576655a755
 							// Content-Disposition: form-data; name="userfile"; filename="'onmouseover='alert(1)'"
 							// Content-Type: image/jpeg
 							//
 							// <?php phpinfo(); ?>
-							// --e7fa94ca703b4deca2d088b04354d64f--
+							// --13db3188cc5e4609b27b48576655a755--
 							//
 							//
 							// move_uploaded_file($_FILES['userfile']['tmp_name'], ('uploads/' . $_FILES['userfile']['name']))
