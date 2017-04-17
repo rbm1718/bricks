@@ -63,6 +63,16 @@ class PhpReverseProxy{
 			$ch=curl_init();
 			if($this->request_method=="POST"){
 				curl_setopt($ch, CURLOPT_POST,1);
+				// TODO: AI issue #11, High, Server-Side Request Forgery, https://github.com/rbm1718/bricks/issues/11
+				//
+				// POST /includes/PHPReverseProxy.php HTTP/1.1
+				// Host: localhost
+				// Accept-Encoding: identity
+				// Connection: close
+				// Content-Length: 24
+				// Content-Type: application/x-www-form-urlencoded
+				//
+				// php_input=localhost%3A80
 				curl_setopt($ch, CURLOPT_POSTFIELDS,file_get_contents("php://input"));
 			}
 			curl_setopt($ch,CURLOPT_URL,$this->translateURL($this->host));
