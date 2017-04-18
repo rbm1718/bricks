@@ -43,18 +43,18 @@
 						// Accept-Encoding: identity
 						// Connection: close
 						// Content-Length: 307
-						// Content-Type: multipart/form-data; boundary=d8c6387035bc4af0b92cb6727239bfe7
+						// Content-Type: multipart/form-data; boundary=729b22c6620745ceb478fee3f6de39d0
 						//
-						// --d8c6387035bc4af0b92cb6727239bfe7
+						// --729b22c6620745ceb478fee3f6de39d0
 						// Content-Disposition: form-data; name="upload"
 						//
 						// 935137890000
-						// --d8c6387035bc4af0b92cb6727239bfe7
+						// --729b22c6620745ceb478fee3f6de39d0
 						// Content-Disposition: form-data; name="userfile"; filename="../../../../../../../../../../tmp/"
 						// Content-Type: image/gif
 						//
 						// <?php phpinfo(); ?>
-						// --d8c6387035bc4af0b92cb6727239bfe7--
+						// --729b22c6620745ceb478fee3f6de39d0--
 						//
 						move_uploaded_file($_FILES['userfile']['tmp_name'], $destination);
 						echo "<div class=\"alert-box success\">Upload succesful: <a href='$destination'>here</a><a href=\"\" class=\"close\">&times;</a></div>";
