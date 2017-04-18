@@ -3,6 +3,7 @@
 	$sSuccessMsg = "<div class=\"alert-box\">  You are not logged in.  <a href=\"\" class=\"close\">&times;</a></div>";
 	if(isset($_POST['submit'])) {
 		$username=$_POST['username'];
+		// TODO: AI issue #16, High, Weak Cryptographic Hash, https://github.com/rbm1718/bricks/issues/16
 		$pwd=md5($_POST['passwd']);
 		$sql="SELECT * FROM users WHERE name='$username' and password='$pwd'";
 		$result=mysql_query($sql);
