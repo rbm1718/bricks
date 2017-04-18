@@ -11,6 +11,7 @@ $con = mysql_connect($host,$dbuser,$dbpass);
 
 if (!$con)
  {
+ // TODO: AI issue #12, High, System Information Leak, https://github.com/rbm1718/bricks/issues/12
  die('Could not connect: ' . mysql_error());
  }
 
