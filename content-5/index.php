@@ -53,6 +53,7 @@
 								echo '<br/>User ID: <b>'. $content['idusers'].'</b><br/><br/>';
 								echo 'User name: <b>'. $content['name'].'</b><br/><br/>';
 								echo 'E-mail: <b>'. $content['email'].'</b><br/><br/></fieldset>';
+								// TODO: AI issue #12, High, System Information Leak, https://github.com/rbm1718/bricks/issues/12
 								echo (mysql_error());
 								echo '<a  class="small button" href="logout.php">Logout</a>';
 							} else if (!$result) {
