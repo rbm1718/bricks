@@ -316,6 +316,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 
 	for ( ; i < length; i++ ) {
 		// Only deal with non-null/undefined values
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		if ( (options = arguments[ i ]) != null ) {
 			// Extend the base object
 			for ( name in options ) {
@@ -638,6 +639,7 @@ jQuery.extend({
 		var type,
 			ret = results || [];
 
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		if ( arr != null ) {
 			// The window, strings (and functions) also have 'length'
 			// Tweaked logic slightly to handle Blackberry 4.7 RegExp issues #6930
@@ -729,6 +731,7 @@ jQuery.extend({
 			for ( ; i < length; i++ ) {
 				value = callback( elems[ i ], i, arg );
 
+				// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 				if ( value != null ) {
 					ret[ ret.length ] = value;
 				}
@@ -739,6 +742,7 @@ jQuery.extend({
 			for ( key in elems ) {
 				value = callback( elems[ key ], key, arg );
 
+				// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 				if ( value != null ) {
 					ret[ ret.length ] = value;
 				}
@@ -785,6 +789,7 @@ jQuery.extend({
 	// The value/s can optionally be executed if it's a function
 	access: function( elems, fn, key, value, chainable, emptyGet, pass ) {
 		var exec,
+			// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 			bulk = key == null,
 			i = 0,
 			length = elems.length;
@@ -1616,6 +1621,7 @@ jQuery.extend({
 			ret = thisCache[ name ];
 
 			// Test for null|undefined property data
+			// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 			if ( ret == null ) {
 
 				// Try to find the camelCased property
@@ -2185,6 +2191,7 @@ jQuery.fn.extend({
 			}
 
 			// Treat null/undefined as ""; convert numbers to string
+			// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 			if ( val == null ) {
 				val = "";
 			} else if ( typeof val === "number" ) {
@@ -2235,6 +2242,7 @@ jQuery.extend({
 					option = options[ i ];
 
 					// Don't return options that are disabled or in a disabled optgroup
+					// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 					if ( option.selected && (jQuery.support.optDisabled ? !option.disabled : option.getAttribute("disabled") === null) &&
 							(!option.parentNode.disabled || !jQuery.nodeName( option.parentNode, "optgroup" )) ) {
 
@@ -2306,6 +2314,7 @@ jQuery.extend({
 
 		if ( value !== undefined ) {
 
+			// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 			if ( value === null ) {
 				jQuery.removeAttr( elem, name );
 				return;
@@ -2318,6 +2327,7 @@ jQuery.extend({
 				return value;
 			}
 
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		} else if ( hooks && "get" in hooks && notxml && (ret = hooks.get( elem, name )) !== null ) {
 			return ret;
 
@@ -2444,6 +2454,7 @@ jQuery.extend({
 			}
 
 		} else {
+			// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 			if ( hooks && "get" in hooks && (ret = hooks.get( elem, name )) !== null ) {
 				return ret;
 
@@ -3092,6 +3103,7 @@ jQuery.event = {
 		filter: function( event, original ) {
 
 			// Add which for key events
+			// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 			if ( event.which == null ) {
 				event.which = original.charCode != null ? original.charCode : original.keyCode;
 			}
@@ -3108,6 +3120,7 @@ jQuery.event = {
 				fromElement = original.fromElement;
 
 			// Calculate pageX/Y if missing and clientX/Y available
+			// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 			if ( event.pageX == null && original.clientX != null ) {
 				eventDoc = event.target.ownerDocument || document;
 				doc = eventDoc.documentElement;
@@ -3504,10 +3517,12 @@ jQuery.fn.extend({
 			return this;
 		}
 
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		if ( data == null && fn == null ) {
 			// ( types, fn )
 			fn = selector;
 			data = selector = undefined;
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		} else if ( fn == null ) {
 			if ( typeof selector === "string" ) {
 				// ( types, selector, fn )
@@ -3647,6 +3662,7 @@ jQuery.each( ("blur focus focusin focusout load resize scroll unload click dblcl
 
 	// Handle event binding
 	jQuery.fn[ name ] = function( data, fn ) {
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		if ( fn == null ) {
 			fn = data;
 			data = null;
@@ -4272,6 +4288,7 @@ Expr = Sizzle.selectors = {
 			return function( elem, context ) {
 				var result = Sizzle.attr( elem, name );
 
+				// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 				if ( result == null ) {
 					return operator === "!=";
 				}
@@ -4812,6 +4829,7 @@ function condense( unmatched, map, filter, context, xml ) {
 		newUnmatched = [],
 		i = 0,
 		len = unmatched.length,
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		mapped = map != null;
 
 	for ( ; i < len; i++ ) {
@@ -4970,6 +4988,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				matchedCount = 0,
 				i = "0",
 				unmatched = seed && [],
+				// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 				outermost = expandContext != null,
 				contextBackup = outermostContext,
 				// We must always have either seed elements or context
@@ -4983,6 +5002,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			}
 
 			// Add elements passing elementMatchers directly to results
+			// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 			for ( ; (elem = elems[i]) != null; i++ ) {
 				if ( byElement && elem ) {
 					for ( j = 0; (matcher = elementMatchers[j]); j++ ) {
@@ -5807,6 +5827,7 @@ jQuery.fn.extend({
 		var elem,
 			i = 0;
 
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		for ( ; (elem = this[i]) != null; i++ ) {
 			if ( !selector || jQuery.filter( selector, [ elem ] ).length ) {
 				if ( !keepData && elem.nodeType === 1 ) {
@@ -5827,6 +5848,7 @@ jQuery.fn.extend({
 		var elem,
 			i = 0;
 
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		for ( ; (elem = this[i]) != null; i++ ) {
 			// Remove element nodes and prevent memory leaks
 			if ( elem.nodeType === 1 ) {
@@ -6283,6 +6305,7 @@ jQuery.extend({
 		}
 
 		// Use the already-created safe fragment if context permits
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		for ( i = 0; (elem = elems[i]) != null; i++ ) {
 			if ( typeof elem === "number" ) {
 				elem += "";
@@ -6363,6 +6386,7 @@ jQuery.extend({
 		// Reset defaultChecked for any radios and checkboxes
 		// about to be appended to the DOM in IE 6/7 (#8060)
 		if ( !jQuery.support.appendChecked ) {
+			// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 			for ( i = 0; (elem = ret[i]) != null; i++ ) {
 				if ( jQuery.nodeName( elem, "input" ) ) {
 					fixDefaultChecked( elem );
@@ -6386,6 +6410,7 @@ jQuery.extend({
 				}
 			};
 
+			// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 			for ( i = 0; (elem = ret[i]) != null; i++ ) {
 				// Check if we're done after handling an executable script
 				if ( !( jQuery.nodeName( elem, "script" ) && handleScript( elem ) ) ) {
@@ -6414,6 +6439,7 @@ jQuery.extend({
 			deleteExpando = jQuery.support.deleteExpando,
 			special = jQuery.event.special;
 
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		for ( ; (elem = elems[i]) != null; i++ ) {
 
 			if ( acceptData || jQuery.acceptData( elem ) ) {
@@ -6941,9 +6967,11 @@ function getWidthOrHeight( elem, name, extra ) {
 	// some non-html elements return undefined for offsetWidth, so check for null/undefined
 	// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
 	// MathML - https://bugzilla.mozilla.org/show_bug.cgi?id=491668
+	// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 	if ( val <= 0 || val == null ) {
 		// Fall back to computed then uncomputed css if necessary
 		val = curCSS( elem, name );
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		if ( val < 0 || val == null ) {
 			val = elem.style[ name ];
 		}
@@ -7842,6 +7870,7 @@ jQuery.extend({
 		s.dataTypes = jQuery.trim( s.dataType || "*" ).toLowerCase().split( core_rspace );
 
 		// A cross-domain request is in order when we have a protocol:host:port mismatch
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		if ( s.crossDomain == null ) {
 			parts = rurl.exec( s.url.toLowerCase() ) || false;
 			s.crossDomain = parts && ( parts.join(":") + ( parts[ 3 ] ? "" : parts[ 1 ] === "http:" ? 80 : 443 ) ) !==
@@ -8779,6 +8808,7 @@ function defaultPrefilter( elem, props, opts ) {
 	// handle queue: false promises
 	if ( !opts.queue ) {
 		hooks = jQuery._queueHooks( elem, "fx" );
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		if ( hooks.unqueued == null ) {
 			hooks.unqueued = 0;
 			oldfire = hooks.empty.fire;
@@ -8940,6 +8970,7 @@ Tween.propHooks = {
 			var result;
 
 			if ( tween.elem[ tween.prop ] != null &&
+				// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 				(!tween.elem.style || tween.elem.style[ tween.prop ] == null) ) {
 				return tween.elem[ tween.prop ];
 			}
@@ -9282,9 +9313,11 @@ jQuery.offset = {
 			options = options.call( elem, i, curOffset );
 		}
 
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		if ( options.top != null ) {
 			props.top = ( options.top - curOffset.top ) + curTop;
 		}
+		// TODO: AI issue #13, High, Erroneous Null Comparison, https://github.com/rbm1718/bricks/issues/13
 		if ( options.left != null ) {
 			props.left = ( options.left - curOffset.left ) + curLeft;
 		}
