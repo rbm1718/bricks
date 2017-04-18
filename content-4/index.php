@@ -7,8 +7,8 @@
 	// GET /content-4/index.php HTTP/1.1
 	// Host: localhost
 	// Accept-Encoding: identity
-	// Connection: close
 	// User-Agent: ' or sleep(5) = '1
+	// Connection: close
 	//
 	//
 	//
