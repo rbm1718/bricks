@@ -7541,6 +7541,7 @@ jQuery.extend({
 		data: null,
 		dataType: null,
 		username: null,
+		// TODO: AI issue #14, High, Information Exposure Through Comments, https://github.com/rbm1718/bricks/issues/14
 		password: null,
 		cache: null,
 		throws: false,
