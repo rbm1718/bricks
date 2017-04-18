@@ -72,7 +72,7 @@ class PhpReverseProxy{
 				// Content-Length: 24
 				// Content-Type: application/x-www-form-urlencoded
 				//
-				// php_input=localhost%3A80
+				// php_input=localhost:80
 				curl_setopt($ch, CURLOPT_POSTFIELDS,file_get_contents("php://input"));
 			}
 			curl_setopt($ch,CURLOPT_URL,$this->translateURL($this->host));
