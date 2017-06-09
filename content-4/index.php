@@ -2,6 +2,17 @@
 	require_once(dirname(dirname(__FILE__)) . '/includes/MySQLHandler.php');
 	$uagent = $_SERVER['HTTP_USER_AGENT'];
 	$sql= "SELECT * FROM users WHERE ua='$uagent' ";
+	// TODO: AI issue #18, High, SQL Injection, https://github.com/rbm1718/bricks/issues/18
+	//
+	// GET /content-4/index.php HTTP/1.1
+	// Host: localhost
+	// Accept-Encoding: identity
+	// User-Agent: ' or sleep(5) = '1
+	// Connection: close
+	//
+	//
+	//
+	// mysql_select_db(NULL, True)
 	$result=mysql_query($sql);
 	$count=mysql_num_rows($result);
 ?><!DOCTYPE html>
