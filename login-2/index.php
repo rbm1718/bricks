@@ -11,7 +11,7 @@
 			"<div class=\"alert-box success\">Succesfully logged in.<a href=\"\" class=\"close\">&times;</a></div>":
 			"<div class=\"alert-box alert\">Wrong user name or password.<a href=\"\" class=\"close\">&times;</a></div>");
 								}
-// TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
+// TODO: AI issue #17, High, 130, https://github.com/rbm1718/bricks/issues/17
 ?><!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
