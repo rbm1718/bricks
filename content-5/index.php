@@ -9,7 +9,7 @@
 		session_start();
 		if($count1>0)
 		{
-			// TODO: AI issue #6, High, 147, https://github.com/rbm1718/bricks/issues/6
+			// TODO: AI issue #19, High, 147, https://github.com/rbm1718/bricks/issues/19
 			setcookie(User, $username);
 			header("location: index.php");
 		}
