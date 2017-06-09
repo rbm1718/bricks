@@ -11,7 +11,7 @@
 	$result=mysql_query($sql);
 	$count=mysql_num_rows($result);
 	if($count>0){
-		// TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
+		// TODO: AI issue #17, High, 130, https://github.com/rbm1718/bricks/issues/17
 		$_SESSION['valid'] = "1";
 	} 	} else {
 		$_SESSION['valid'] = "0";
