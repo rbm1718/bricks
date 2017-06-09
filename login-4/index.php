@@ -11,7 +11,7 @@
 		$count=mysql_num_rows($result);
 		$sSuccessMsg = ($count>0?
 		"<div class=\"alert-box success\">Succesfully logged in.<a href=\"\" class=\"close\">&times;</a></div>":
-		// TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
+		// TODO: AI issue #17, High, 130, https://github.com/rbm1718/bricks/issues/17
 		"<div class=\"alert-box alert\">Wrong user name or password.<a href=\"\" class=\"close\">&times;</a></div>");
 								}
 ?><!DOCTYPE html>
