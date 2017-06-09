@@ -11,7 +11,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8" />
-  // TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
+  // TODO: AI issue #17, High, 130, https://github.com/rbm1718/bricks/issues/17
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
   <title>Bricks Content Page #4</title>  
@@ -40,7 +40,7 @@
 					if ($content = mysql_fetch_array($result)) {
 						echo 'This browser is normally used by<br/><br/>User ID: '. $content['idusers'] . '<br/><br/>User name: '. $content['name'] . '<br/><br/>';
 					} else if (!$result) {
-						// TODO: AI issue #2, High, 130, https://github.com/rbm1718/bricks/issues/2
+						// TODO: AI issue #17, High, 130, https://github.com/rbm1718/bricks/issues/17
 						echo("Database query failed: " . mysql_error());
 					} else {		
 						echo 'Error! User does not exists<br/><br/>';
