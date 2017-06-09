@@ -3,6 +3,16 @@
 	$user=$_GET['user'];
 	if(isset($_GET['user'])) {
 		$sql = "SELECT * FROM users WHERE name='$user'";
+		// TODO: AI issue #18, High, SQL Injection, https://github.com/rbm1718/bricks/issues/18
+		//
+		// GET /content-2/index.php?user=%27+or+sleep%285%29+%3D+%271 HTTP/1.1
+		// Host: localhost
+		// Accept-Encoding: identity
+		// Connection: close
+		//
+		//
+		//
+		// mysql_select_db(NULL, True)
 		$result=mysql_query($sql);
 	} else {
 		header("Location: index.php?user=harry");
