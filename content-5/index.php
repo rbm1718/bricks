@@ -50,8 +50,50 @@
 						$count=mysql_num_rows($result);
 						if ($content = mysql_fetch_array($result)) {
 								echo '<fieldset><legend>Details</legend>';
+								// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+								//
+								// GET /content-5/index.php HTTP/1.1
+								// Host: localhost
+								// Accept-Encoding: identity
+								// Connection: close
+								// Cookie: User=935137890000
+								//
+								//
+								//
+								// (mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE name=\'' . $_COOKIE['User']) . '\' ')))['idusers'] == '</b></div></div><script>alert(1)</script>')
+								//
+								// mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE name=\'' . $_COOKIE['User']) . '\' ')))
+								// mysql_select_db(NULL, True)
 								echo '<br/>User ID: <b>'. $content['idusers'].'</b><br/><br/>';
+								// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+								//
+								// GET /content-5/index.php HTTP/1.1
+								// Host: localhost
+								// Accept-Encoding: identity
+								// Connection: close
+								// Cookie: User=935137890000
+								//
+								//
+								//
+								// (mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE name=\'' . $_COOKIE['User']) . '\' ')))['name'] == '</b></div></div><script>alert(1)</script>')
+								//
+								// mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE name=\'' . $_COOKIE['User']) . '\' ')))
+								// mysql_select_db(NULL, True)
 								echo 'User name: <b>'. $content['name'].'</b><br/><br/>';
+								// TODO: AI issue #3, High, Cross-site Scripting, https://github.com/rbm1718/bricks/issues/3
+								//
+								// GET /content-5/index.php HTTP/1.1
+								// Host: localhost
+								// Accept-Encoding: identity
+								// Connection: close
+								// Cookie: User=935137890000
+								//
+								//
+								//
+								// (mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE name=\'' . $_COOKIE['User']) . '\' ')))['email'] == '</b></div></div><script>alert(1)</script>')
+								//
+								// mysql_fetch_array(mysql_query((('SELECT * FROM users WHERE name=\'' . $_COOKIE['User']) . '\' ')))
+								// mysql_select_db(NULL, True)
 								echo 'E-mail: <b>'. $content['email'].'</b><br/><br/></fieldset>';
 								echo (mysql_error());
 								echo '<a  class="small button" href="logout.php">Logout</a>';
